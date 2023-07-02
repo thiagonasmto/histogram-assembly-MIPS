@@ -3,36 +3,13 @@
 	H: .word 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 	
 .text 
-	li $t0, 36 #Lmax
 	li $t1, 144 #TAM_V
 	li $t2, 0  #i = 0
 	li $t3, 0  #j = 0
 	li $t4, 0  #cont = 0
 	li $t6, 40 #TAM_H
 	
-	#mainV: #Imprimir todos os elementos de V
-	#blt $t2, $t1, testV
-	#j finishV
-	#testV:
-	#li $v0, 1
-	#lw $a0, V($t2)
-	#addi $t2, $t2, 4
-	#syscall 
-	#j mainV
-	
-	#finishV: #Imprimir todos os elementos de H
-	#move $t2, $zero
-	#mainH:
-	#blt $t2, $t6, testH
-	#j finishH
-	#testH:
-	#li $v0, 1
-	#lw $a0, H($t2)
-	#addi $t2, $t2, 4
-	#syscall 
-	#j mainH
-	
-	finishH:
+	main:
 	move $t2, $zero 			 # i = 0
 	loopCompareFixed:
 	blt $t2, $t6, loopCompareVariable 	 # i < TAM_H
